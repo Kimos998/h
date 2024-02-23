@@ -152,11 +152,16 @@ input[type=submit]:hover
     form.addEventListener('submit', e => {
         e.preventDefault()
         fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-            .then(response => window.location.href = 'https://thanks.com')
+            .then(response => {
+                setTimeout(() => {
+                    window.location.href = 'https://thanks.com';
+                }, 500); // وقت التأخير بالملي ثانية (0.5 ثانية)
+            })
             .catch(error => console.error('Error!', error.message))
         form.reset()
     })
 </script>
+
 
 
 </body>
